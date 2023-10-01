@@ -24,9 +24,8 @@ def enumerate_dll_exports(directory):
     return exported_functions
 
 def main():
-  # Change directory or use sys.argv 
-    system32_directory = os.path.join(os.environ['SystemRoot'], 'System32')
-    exported_functions = enumerate_dll_exports(system32_directory)
+    path = sys.argv[1]
+    exported_functions = enumerate_dll_exports(path)
 
     # Redirect standard output to a file
     with open('exported_functions.txt', 'w') as f:
